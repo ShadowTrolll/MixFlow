@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="yhrITP" name="MixFlow" displaySplashScreen="1" reportAppUsage="1"
+              splashScreenColour="Dark" projectType="guiapp" version="0.0.1"
+              bundleIdentifier="com.yourcompany.NewProject" includeBinaryInAppConfig="1"
+              cppLanguageStandard="latest" companyCopyright="Copyright Control"
+              jucerVersion="5.2.0" companyName="Nosoft ES" companyWebsite="nodsoft.net"
+              companyEmail="admin@nodsoft.net">
+  <MAINGROUP id="YZzlXB" name="MixFlow">
+    <GROUP id="{049359AB-8EA8-AF1B-0D74-20A7A295D564}" name="Source">
+      <FILE id="NdTWHU" name="MainComponent.cpp" compile="1" resource="0"
+            file="Source/MainComponent.cpp"/>
+      <FILE id="J7Bel8" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
+      <FILE id="n91vrB" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+    </GROUP>
+  </MAINGROUP>
+  <EXPORTFORMATS>
+    <VS2017 targetFolder="Builds/VisualStudio2017" windowsTargetPlatformVersion="10.0.16299.0">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
+                       debugInformationFormat="ProgramDatabase" enablePluginBinaryCopyStep="0"
+                       linkTimeOptimisation="0" isDebug="1" optimisation="1" targetName="NewProject"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
+                       debugInformationFormat="ProgramDatabase" enablePluginBinaryCopyStep="0"
+                       linkTimeOptimisation="1" isDebug="0" optimisation="3" targetName="NewProject"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="C:/Users/DJ Daemonix/Desktop/juce-huckleberry-windows/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="C:/Users/DJ Daemonix/Desktop/juce-huckleberry-windows/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="C:/Users/DJ Daemonix/Desktop/juce-huckleberry-windows/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="C:/Users/DJ Daemonix/Desktop/juce-huckleberry-windows/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="C:/Users/DJ Daemonix/Desktop/juce-huckleberry-windows/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="C:/Users/DJ Daemonix/Desktop/juce-huckleberry-windows/JUCE/modules"/>
+        <MODULEPATH id="juce_cryptography" path="C:/Users/DJ Daemonix/Desktop/juce-huckleberry-windows/JUCE/modules"/>
+        <MODULEPATH id="juce_video" path="C:/Users/DJ Daemonix/Desktop/juce-huckleberry-windows/JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="C:/Users/DJ Daemonix/Desktop/juce-huckleberry-windows/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="C:/Users/DJ Daemonix/Desktop/juce-huckleberry-windows/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="C:/Users/DJ Daemonix/Desktop/juce-huckleberry-windows/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="C:/Users/DJ Daemonix/Desktop/juce-huckleberry-windows/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="C:/Users/DJ Daemonix/Desktop/juce-huckleberry-windows/JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2017>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_cryptography" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_video" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+  <JUCEOPTIONS/>
+</JUCERPROJECT>
