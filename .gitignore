@@ -1,2 +1,16 @@
 
 \.vs/
+
+Builds/MixFlow_Barebone/Debug/MixFlow_Barebone\.tlog/
+
+Builds/MixFlow_Barebone/x64/Debug/MixFlow_Barebone\.tlog/
+
+Builds/MixFlow_Barebone/x64/Debug/
+
+Builds/MixFlow_Barebone/Debug/
+
+Builds/VisualStudio2017/Debug/MixFlow_Barebone\.exe
+
+Builds/VisualStudio2017/Debug/MixFlow_Barebone\.ilk
+
+Builds/MixFlow_Barebone/x64/
