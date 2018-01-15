@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <winsock.h>
+#include <Windows.h>
 #include <MYSQL/mysql.h>
 
 using namespace std;

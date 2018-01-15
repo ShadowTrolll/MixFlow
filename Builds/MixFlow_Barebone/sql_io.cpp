@@ -23,8 +23,11 @@ SQL_IO::~SQL_IO()
 
 void SQL_IO::InitConnection()
 {
-	mysql_real_connect(&mysql, settingsHostname, settingsUsername, settingsPassword, settingsDatabaseName, 0, NULL, 0);
-	connectedToSQL = true;
+	if (mysql_real_connect(&mysql, settingsHostname, settingsUsername, settingsPassword, settingsDatabaseName, 0, NULL, 0))
+	{
+		OutputDebugStringW(L"Connected to MySQL Database");
+	} 
+
 }
 
 void SQL_IO::CloseConnection()
