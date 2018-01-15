@@ -15,4 +15,4 @@
   include_juce_video.cpp
 ..\..\Source\Main.cpp(27): warning C4100: 'commandLine' : paramètre formel non référencé
 ..\..\Source\Main.cpp(49): warning C4100: 'commandLine' : paramètre formel non référencé
-  MixFlow_App.vcxproj -> D:\Code\Source\repos\MixFlow\Builds\VisualStudio2017\x64\Debug\App\NewProject.exe
+  MixFlow_App.vcxproj -> C:\Users\DJ Daemonix\source\repos\MixFlow\Builds\VisualStudio2017\x64\Debug\App\NewProject.exe
