@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -153,13 +153,16 @@
   <ItemGroup>
     <ClInclude Include="config.h" />
     <ClInclude Include="console_tools.h" />
+    <ClInclude Include="lib\json.hpp" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="properties.h" />
     <ClInclude Include="sqlite_io.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="config.cpp" />
     <ClCompile Include="console_tools.cpp" />
     <ClCompile Include="importMP3.cpp" />

@@ -10,7 +10,7 @@ void ClearConsole()
 	#ifdef __unix__
 	printf("\033c");
 
-	#elif defined(_WIN32) || defined(WIN32)
+	#elif defined(WIN32) || defined(_WIN32)
 	system("cls");
 
 	#endif // __unix__

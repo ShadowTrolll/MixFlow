@@ -14,14 +14,13 @@ using namespace std;
 **/
 
 
-class SQLite_IO
-{
-public:
-	SQLite_IO();
-	~SQLite_IO();
-
+namespace SQLite_IO
+{	
 	void InitDB();	// Opens a SQLite database.
 	void CloseDB(); // Closes an existing SQLite connection.
 
-private:
+
+	bool	DBconnected = false;
+
+	string	DBFilePath = Config::ReadString(projectProperties::configPathDB, "DBFilePath"); //Placeholder
 };

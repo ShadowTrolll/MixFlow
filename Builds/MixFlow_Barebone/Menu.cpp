@@ -5,7 +5,7 @@ using namespace std;
 void DisplaySplash()
 {
 	cout <<	"===================================================================\n"
-			"||                                                      v0.0.0.1 ||\n"
+			"||                                                      v" << AssemblyInfo::versionDisplay << " ||\n"
 			"||                                                               ||\n"
 			"||                                                               ||\n"
 			"||                            MixFlow                            ||\n"

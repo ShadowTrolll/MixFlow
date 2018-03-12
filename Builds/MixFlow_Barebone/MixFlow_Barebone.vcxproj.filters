@@ -16,6 +16,12 @@
     <Filter Include="Fichiers sources\ImportTags">
       <UniqueIdentifier>{40f6d34c-481a-4490-bdd7-0df0b6cc9d5c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\Libraries">
+      <UniqueIdentifier>{b4415011-4bcb-4be0-b0f2-29f6384a4d84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Assembly">
+      <UniqueIdentifier>{3a1bb579-658d-4300-9a7a-8cbe1aff0540}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -39,6 +45,12 @@
     <ClInclude Include="config.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="properties.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\json.hpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="importMP3.cpp">
@@ -58,6 +70,9 @@
     </ClCompile>
     <ClCompile Include="config.cpp">
       <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="AssemblyInfo.cpp">
+      <Filter>Fichiers sources\Assembly</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
