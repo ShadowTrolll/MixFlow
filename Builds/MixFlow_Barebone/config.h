@@ -36,8 +36,10 @@ namespace Config
 	* string path - Path & Filename of the config file.
 	* string parameter - Parameter to read, in specified category.
 	*/
-	int ReadInt(string path, string parameter);
-	string ReadString(string path, string parameter);
+	//int ReadInt(const string &path, const string parameter);
+	//string ReadString(const string &path, const string parameter);
+
+	void ReadStringParameter(const string & path, const string parameterName, string &parameter);
 
 	/*
 	* Config::WriteValue();
@@ -48,8 +50,8 @@ namespace Config
 	* string parameter - Parameter to write, in specified category.
 	* value value - Value to write for specified parameter.
 	*/
-	void WriteInt(string path, string parameter, int value);
-	void WriteString(string path, string parameter, string value);
+	void WriteInt(const string &path, const string parameter, int value);
+	void WriteString(const string &path, const string parameter, string value);
 
 
 	/*
@@ -71,3 +73,5 @@ namespace Config
 	*/
 	void WriteFile(string path, json jstream);
 }
+
+std::string to_string(json & j);

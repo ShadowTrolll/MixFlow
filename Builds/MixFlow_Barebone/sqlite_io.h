@@ -16,11 +16,9 @@ using namespace std;
 
 namespace SQLite_IO
 {	
-	void InitDB();	// Opens a SQLite database.
-	void CloseDB(); // Closes an existing SQLite connection.
+	bool	DBConnected = false; //Status indicatior for DB connection
+
+	//string	DBFilePath = Config::ReadString(projectProperties::configPathDB, "DBFilePath"); //Placeholder
 
 
-	bool	DBconnected = false;
-
-	string	DBFilePath = Config::ReadString(projectProperties::configPathDB, "DBFilePath"); //Placeholder
 };

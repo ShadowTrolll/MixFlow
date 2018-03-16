@@ -16,6 +16,6 @@ namespace projectProperties
 
 
 	extern string			configPath		= "%APPDATA%/MixFlow/Config/",
-							configPathMain	= projectProperties::configPath + "config.json",
-							configPathDB	= projectProperties::configPath + "database.json";
+							configPathMain	= configPath + "config.json",
+							configPathDB	= configPath + "database.json";
 }

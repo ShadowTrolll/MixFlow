@@ -5,7 +5,7 @@
 * Various Console commands for interface simulation
 **/
 
-void ClearConsole()
+void clearConsole()
 {
 	#ifdef __unix__
 	printf("\033c");

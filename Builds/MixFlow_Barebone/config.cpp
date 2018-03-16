@@ -24,8 +24,18 @@ void Config::setDefaultConfigPath()
 }
 
 
+inline std::string to_string(const json &j)
+{
+	if (j.type() == json::value_t::string) {
+		return j.get<std::string>();
+	}
 
-int Config::ReadInt(string path, string parameter)
+	return j.dump();
+}
+
+
+/*
+int Config::ReadInt(const string &path, const string parameter)
 {
 	int value;
 	json j = ReadFile(path);
@@ -39,12 +49,15 @@ int Config::ReadInt(string path, string parameter)
 	return value;
 }
 
-string Config::ReadString(string path, string parameter)
+string Config::ReadString(const string &path, const string parameter)
 {
 	string value;
 	json j = ReadFile(path);
 
-	try { value = string( j[parameter] ); }
+	try 
+	{ 
+		value = to_string(j[parameter]); 
+	}
 	catch (const std::exception& e)
 	{
 		throw string("Error in ReadString(" + path + ", " + parameter + ") :") + e.what();
@@ -52,8 +65,23 @@ string Config::ReadString(string path, string parameter)
 
 	return value;
 }
+*/
 
-void Config::WriteInt(string path, string parameter, int value)
+void Config::ReadStringParameter(const string &path, const string parameterName, string &parameter)
+{
+	json j = ReadFile(path);
+
+	try
+	{
+		parameter = j[parameter].get<string>();
+	}
+	catch (const std::exception& e)
+	{
+		throw string("Error in ReadString(" + path + ", " + parameter + ") :") + e.what();
+	}
+}
+
+void Config::WriteInt(const string &path, const string parameter, int value)
 {
 	json j = ReadFile(path);
 
@@ -71,20 +99,21 @@ void Config::WriteInt(string path, string parameter, int value)
 
 }
 
-void Config::WriteString(string path, string parameter, string value)
+void Config::WriteString(const string &path, const string parameter, string value)
 {
 	json j = ReadFile(path);
 
-	try
+	//try
 	{
 		j[parameter] = value;
 
-		std::ofstream o(path);
+		std::ofstream o;
+		o.open(path);
 		o << std::setw(4) << j << std::endl;
 	}
-	catch (const std::exception& e)
+	//catch (const std::exception e)
 	{
-		throw "Error in WriteInt(" + path + ", " + parameter + ", " + value + ") :" + e.what();
+	//	throw "Error in WriteInt(" + path + ", " + parameter + ", " + value + ") :" + e.what();
 	}
 }
 
@@ -92,14 +121,15 @@ json Config::ReadFile(string path)
 {
 	json j;
 
-	try
+	//try
 	{
-		std::ifstream i(path);
+		std::ifstream i;
+		i.open(path);
 		i >> j;
 	}
-	catch (const std::exception& e)
+	//catch (const std::exception e)
 	{
-		throw string("Error in ReadFile(" + path + ") :") + e.what();
+	//	throw string("Error in ReadFile(" + path + ") :") + e.what();
 	}
 
 	return json();
@@ -112,7 +142,7 @@ void Config::WriteFile(string path, json jstream)
 		std::ofstream o(path);
 		o << std::setw(4) << jstream << std::endl;
 	}
-	catch (const std::exception& e)
+	catch (const std::exception e)
 	{
 		throw string("Error in WriteFile(" + path + "%FILESTREAM%) :") + e.what();
 	}

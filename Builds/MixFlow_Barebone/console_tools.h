@@ -8,4 +8,4 @@
 * Various Console commands for interface simulation
 **/
 
-void ClearConsole();
+void clearConsole();

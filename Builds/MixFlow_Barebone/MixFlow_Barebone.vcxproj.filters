@@ -22,18 +22,18 @@
     <Filter Include="Fichiers sources\Assembly">
       <UniqueIdentifier>{3a1bb579-658d-4300-9a7a-8cbe1aff0540}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\Tools">
+      <UniqueIdentifier>{faacc849-46ea-42e1-9144-4f27c92be29b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Assembly">
+      <UniqueIdentifier>{84b2b9be-5171-41ac-963f-e0d2739ab651}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Tools">
+      <UniqueIdentifier>{54ffefc4-ae42-468c-8698-3015d6428d38}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="Main.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="console_tools.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Menu.h">
@@ -42,22 +42,31 @@
     <ClInclude Include="sqlite_io.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="lib\json.hpp">
+      <Filter>Fichiers d%27en-tête\Libraries</Filter>
+    </ClInclude>
     <ClInclude Include="config.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="console_tools.h">
+      <Filter>Fichiers d%27en-tête\Tools</Filter>
     </ClInclude>
     <ClInclude Include="properties.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Assembly</Filter>
     </ClInclude>
-    <ClInclude Include="lib\json.hpp">
+    <ClInclude Include="stdafx.h">
+      <Filter>Fichiers d%27en-tête\Assembly</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Fichiers d%27en-tête\Assembly</Filter>
+    </ClInclude>
+    <ClInclude Include="Feature_Config.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="importMP3.cpp">
       <Filter>Fichiers sources\ImportTags</Filter>
-    </ClCompile>
-    <ClCompile Include="console_tools.cpp">
-      <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Fichiers sources</Filter>
@@ -69,10 +78,13 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="config.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="AssemblyInfo.cpp">
-      <Filter>Fichiers sources\Assembly</Filter>
+    <ClCompile Include="console_tools.cpp">
+      <Filter>Fichiers sources\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Feature_Config.cpp">
+      <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
