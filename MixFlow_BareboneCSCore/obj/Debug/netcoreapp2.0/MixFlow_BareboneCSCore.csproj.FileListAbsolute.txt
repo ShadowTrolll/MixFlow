@@ -1,0 +1,8 @@
+C:\Users\DJ Daemonix\source\repos\MixFlow\MixFlow_BareboneCSCore\bin\Debug\netcoreapp2.0\MixFlow_BareboneCSCore.deps.json
+C:\Users\DJ Daemonix\source\repos\MixFlow\MixFlow_BareboneCSCore\bin\Debug\netcoreapp2.0\MixFlow_BareboneCSCore.runtimeconfig.json
+C:\Users\DJ Daemonix\source\repos\MixFlow\MixFlow_BareboneCSCore\bin\Debug\netcoreapp2.0\MixFlow_BareboneCSCore.runtimeconfig.dev.json
+C:\Users\DJ Daemonix\source\repos\MixFlow\MixFlow_BareboneCSCore\bin\Debug\netcoreapp2.0\MixFlow_BareboneCSCore.dll
+C:\Users\DJ Daemonix\source\repos\MixFlow\MixFlow_BareboneCSCore\obj\Debug\netcoreapp2.0\MixFlow_BareboneCSCore.csprojResolveAssemblyReference.cache
+C:\Users\DJ Daemonix\source\repos\MixFlow\MixFlow_BareboneCSCore\obj\Debug\netcoreapp2.0\MixFlow_BareboneCSCore.csproj.CoreCompileInputs.cache
+C:\Users\DJ Daemonix\source\repos\MixFlow\MixFlow_BareboneCSCore\obj\Debug\netcoreapp2.0\MixFlow_BareboneCSCore.AssemblyInfoInputs.cache
+C:\Users\DJ Daemonix\source\repos\MixFlow\MixFlow_BareboneCSCore\obj\Debug\netcoreapp2.0\MixFlow_BareboneCSCore.AssemblyInfo.cs
