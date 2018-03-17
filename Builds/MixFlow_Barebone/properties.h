@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "config.h"
 
 /**	<summary>
 * properties.h
@@ -15,7 +16,7 @@ namespace projectProperties
 #define PROJECT_NAME "MixFlow"
 
 
-	extern string			configPath		= "%APPDATA%/MixFlow/Config/",
+	extern string			configPath = Config.setDefaultConfigPath(),
 							configPathMain	= configPath + "config.json",
 							configPathDB	= configPath + "database.json";
 }

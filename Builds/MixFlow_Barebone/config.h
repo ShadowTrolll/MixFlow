@@ -17,7 +17,7 @@ using namespace std;
 	</summary> **/
 
 
-namespace Config
+static class Config
 {
 	/*
 	* Config::setDefaultConfigPath
@@ -26,7 +26,8 @@ namespace Config
 	* Windows	: %APPDATA%/ProjectName/Config/
 	* Unix		: $HOME/.config/ProjectName/Config/
 	*/
-	void setDefaultConfigPath();
+	public :
+		string setDefaultConfigPath();
 
 	/*
 	* Config::ReadValue();
@@ -72,6 +73,6 @@ namespace Config
 	* json jstream - JSON stream of config file (read with Config::ReadFile())
 	*/
 	void WriteFile(string path, json jstream);
-}
+};
 
 std::string to_string(json & j);

@@ -9,18 +9,18 @@
 </summary> **/
 
 
-void Config::setDefaultConfigPath()
+string Config::setDefaultConfigPath()
 {
 
 #if defined(__unix__)
 	const string configPathDefault = "$HOME/.config/";
 
 #elif defined(WIN32) || defined (_WIN32)
-	const string configPathDefault = "%APPDATA%/";
+	const string configPathDefault = "%APPDATA%\\";
 
 #endif // __unix__
 
-	projectProperties::configPath = configPathDefault + PROJECT_NAME + "/config/";
+	return configPathDefault + PROJECT_NAME + "\\config\\";
 }
 
 
