@@ -12,19 +12,18 @@ using System.Threading.Tasks;
 /// </summary>
 
 
-namespace Mixflow_BareboneCS.Source.Tools
+namespace Mixflow_BareboneCSCore.Source.Tools
 {
 	static class Config
 	{
-		public:
-		static int ReadInt(string filepath, string variable)
+		public static int ReadInt(string filepath, string variable)
 		{
 			int value = 0;
 
 			return value;
 		}
 
-		static string ReadString(string filepath, string variable)
+		public static string ReadString(string filepath, string variable)
 		{
 			string value = "";
 
