@@ -20,3 +20,7 @@ Builds/VisualStudio2017/
 Mixflow_BareboneCS/bin/
 
 Mixflow_BareboneCS/obj/
+
+MixFlow_BareboneCSCore/bin/
+
+MixFlow_BareboneCSCore/obj/Debug/

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using Newtonsoft.Json;
 
 /// <summary>
@@ -12,7 +13,7 @@ using Newtonsoft.Json;
 
 namespace MixFlow_BareboneCSCore.Source.Tools
 {
-    class ConfigJson
+    public class ConfigJson
 	{
 		//Properties
 		public string FilePath { get; set; }
@@ -20,20 +21,29 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 
 		//Variables
 		FileStream fileStream;
+		StreamReader streamReader;
+		StreamWriter streamWriter;
+		FileInfo fileInfo;
+
 		private string jsonRaw = null;
 		private Dictionary<String, String> dictionaryStr;
+		char[] buffer = new char[2048];
+
+
 
 		//Constructors / Deconstructor
-		ConfigJson(string fileName)
+		public ConfigJson(string fileName)
 		{
-			FilePath = fileName;
+			FilePath = @fileName;
+			fileInfo = new FileInfo(FilePath);
 
 			LoadConfig();
 		}
-		ConfigJson(string fileName, string template)
+		public ConfigJson(string fileName, string template)
 		{
-			FilePath = fileName;
+			FilePath = @fileName;
 			template = Template; //@TODO : Template System
+			fileInfo = new FileInfo(FilePath);
 
 			LoadConfig();
 		}
@@ -60,8 +70,24 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 		{
 			try
 			{
-				fileStream = File.Open(FilePath, FileMode.OpenOrCreate);
-				jsonRaw = File.ReadAllText(@FilePath);
+				if (!File.Exists(FilePath))
+				{
+					fileStream = new FileStream(FilePath, FileMode.CreateNew, FileAccess.Write, FileShare.None);
+					fileStream.Close();
+				}
+				if (!IsFileLocked())
+				{
+					fileStream = new FileStream(FilePath, FileMode.Open, FileAccess.ReadWrite);
+				}
+				else
+				{
+					fileStream = new FileStream(FilePath, FileMode.Open, FileAccess.Read);
+				}
+
+				using (streamReader = new StreamReader(fileStream))
+				{
+					jsonRaw = streamReader.ReadToEnd();
+				}
 			}
 			catch (Exception e)
 			{
@@ -72,7 +98,17 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 		{
 			try
 			{
-				File.WriteAllText(@FilePath, jsonRaw);
+				if (!IsFileLocked())
+				{
+					using (streamWriter = new StreamWriter(fileStream, Encoding.UTF8))
+					{
+						streamWriter.Write(jsonRaw);
+					}
+				}
+				else
+				{
+					throw new FileLoadException(("File locked ! Path : " + FilePath));
+				}
 			}
 			catch (Exception e)
 			{
@@ -85,22 +121,73 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 			fileStream.Close();
 		}
 
-		private void Deserialize()
+		protected void Deserialize()
 		{
-			dictionaryStr = JsonConvert.DeserializeObject<Dictionary<String, String>>(jsonRaw);
+			if (fileInfo.Length != 0)
+			{
+				dictionaryStr = JsonConvert.DeserializeObject<Dictionary<String, String>>(jsonRaw);
+			}
 		}
-		protected Dictionary<String, String> deserialize(string json)
+		protected Dictionary<String, String> Deserialize(string json)
 		{
 			Dictionary<string, string> dictionary = JsonConvert.DeserializeObject<Dictionary<String, String>>(json);
 			return dictionary;
 		}
-		private void Serialize()
+		protected void Serialize()
 		{
 			jsonRaw = JsonConvert.SerializeObject(dictionaryStr, Formatting.Indented);
 		}
 
+		public void CleanFiles()
+		{
+			if (Directory.Exists("FOLDER_PATH"))
+			{
+				var directory = new DirectoryInfo("FOLDER_PATH");
+				foreach (FileInfo file in directory.GetFiles())
+				{
+					if (!IsFileLocked())
+					{
+						file.Delete();
+					}
+				}
+			}
+		}
 
-			//Get Set Methods 
+		//Checks
+		public bool IsFileLocked() ///http://dotnet-assembly.blogspot.fr/2012/10/c-check-file-is-being-used-by-another.html
+		{
+			FileStream stream = null;
+
+			try
+			{
+					//Don't change FileAccess to ReadWrite, 
+					//because if a file is in readOnly, it fails.
+					stream = fileInfo.Open
+					(
+						FileMode.Open,
+						FileAccess.Read,
+						FileShare.None
+					);
+			}
+			catch (IOException)
+			{
+				//the file is unavailable because it is:
+				//still being written to
+				//or being processed by another thread
+				//or does not exist (has already been processed)
+				return true;
+			}
+			finally
+			{
+				if (stream != null)
+					stream.Close();
+			}
+
+			//file is not locked
+			return false;
+		}
+
+		//Get Set Methods 
 		public string GetStr(string variable)
 		{
 			string str = dictionaryStr[variable];
