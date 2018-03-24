@@ -19,7 +19,7 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 		public FileInfo			ConfigFileInfo			{ get; set; }
 		public DirectoryInfo	ConfigDirectoryInfo		{ get; set; }	
 		public string			ConfigFileTemplate		{ get; set; }
-		public Encoding			ConfigFileEncoding		{ get; set; }	= Encoding.UTF8;
+		public Encoding			ConfigFileEncoding		{ get; set; }
 
 		//Variables
 		private FileStream		fileStream;
@@ -146,7 +146,7 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 
 
 								//Checks
-		protected bool			IsFileLocked() //http://dotnet-assembly.blogspot.fr/2012/10/c-check-file-is-being-used-by-another.html
+		protected bool			IsFileLocked() ///http://dotnet-assembly.blogspot.fr/2012/10/c-check-file-is-being-used-by-another.html
 		{
 			FileStream stream = null;
 
@@ -230,11 +230,7 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 		public void				GetInt(ref Int32 parameter)
 		{
 			try {
-				if (!dictionary.ContainsKey(nameof(parameter)))
-				{
-					dictionary.Add(nameof(parameter), parameter.ToString());
-				}
-				Int32.TryParse(dictionary[nameof(parameter)], out parameter);
+				parameter = Int32.Parse(dictionary[nameof(parameter)]);
 			}
 			catch (Exception e) {
 				Console.Error.WriteLine("Exception caught on {0}({1}) : {2}", System.Reflection.MethodBase.GetCurrentMethod().Name, parameter, e);
@@ -268,8 +264,7 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 		public void				SetInt(string variable, int value)
 		{
 			try {
-				if (!dictionary.ContainsKey(variable)) dictionary.Add(variable, value.ToString());
-				else dictionary[variable] = value.ToString();
+				dictionary[variable] = value.ToString();
 			}
 			catch (Exception e)
 			{
@@ -279,8 +274,7 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 		public void				SetInt(ref int parameter)
 		{
 			try {
-				if (!dictionary.ContainsKey(nameof(parameter))) dictionary.Add(nameof(parameter), parameter.ToString());
-				else dictionary[nameof(parameter)] = parameter.ToString();
+				dictionary[nameof(parameter)] = parameter.ToString();
 			}
 			catch (Exception e)
 			{

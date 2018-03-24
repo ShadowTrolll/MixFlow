@@ -19,7 +19,7 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 		public FileInfo			ConfigFileInfo			{ get; set; }
 		public DirectoryInfo	ConfigDirectoryInfo		{ get; set; }	
 		public string			ConfigFileTemplate		{ get; set; }
-		public Encoding			ConfigFileEncoding		{ get; set; }	= Encoding.UTF8;
+		public Encoding			ConfigFileEncoding		{ get; set; }
 
 		//Variables
 		private FileStream		fileStream;

@@ -19,7 +19,7 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 		public FileInfo			ConfigFileInfo			{ get; set; }
 		public DirectoryInfo	ConfigDirectoryInfo		{ get; set; }	
 		public string			ConfigFileTemplate		{ get; set; }
-		public Encoding			ConfigFileEncoding		{ get; set; }	= Encoding.UTF8;
+		public Encoding			ConfigFileEncoding		{ get; set; }
 
 		//Variables
 		private FileStream		fileStream;
@@ -146,7 +146,7 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 
 
 								//Checks
-		protected bool			IsFileLocked() //http://dotnet-assembly.blogspot.fr/2012/10/c-check-file-is-being-used-by-another.html
+		protected bool			IsFileLocked() ///http://dotnet-assembly.blogspot.fr/2012/10/c-check-file-is-being-used-by-another.html
 		{
 			FileStream stream = null;
 
@@ -182,45 +182,24 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 								//Get Set Methods 
 		public string			GetStr(string variable)
 		{
-			try
-			{
-				if (!dictionary.ContainsKey(variable))
-				{
-					dictionary.Add(variable, null);
-				}
-			}
-			catch (Exception e)
-			{
-				Console.Error.WriteLine("Exception caught on {0}({1}) : {2}", System.Reflection.MethodBase.GetCurrentMethod().Name, nameof(variable), e);
-			}
-
-			return dictionary[variable];
+			string str = dictionary[variable];
+			return str;
 		}
 		public void				GetStr(ref string parameter)
 		{
-			try
-			{
-				if (!dictionary.ContainsKey(nameof(parameter)))
-				{
-					dictionary.Add(nameof(parameter), null);
-				}
-				parameter = dictionary[nameof(parameter)];
+			try {
+			parameter = dictionary[nameof(parameter)];
 			}
 			catch (Exception e) {
-				Console.Error.WriteLine("Exception caught on {0}(ref {1}) : {2}", System.Reflection.MethodBase.GetCurrentMethod().Name, nameof(parameter), e);
+				Console.Error.WriteLine("Exception caught on {0}({1}) : {2}", System.Reflection.MethodBase.GetCurrentMethod().Name, parameter, e);
 			}
 		}
 
-		public int				GetInt(string variable)
+		public Int32			GetInt(string variable)
 		{
 			Int32 value = 0;
-			try
-			{
-				if (!dictionary.ContainsKey(variable))
-				{
-					dictionary.Add(variable, value.ToString());
-				}
-				Int32.TryParse(dictionary[variable], out value);
+			try {
+				value = Int32.Parse(dictionary[variable]);
 			}
 			catch (Exception e) {
 				Console.Error.WriteLine("Exception caught on {0}({1}) : {2}", System.Reflection.MethodBase.GetCurrentMethod().Name, variable, e);
@@ -230,11 +209,7 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 		public void				GetInt(ref Int32 parameter)
 		{
 			try {
-				if (!dictionary.ContainsKey(nameof(parameter)))
-				{
-					dictionary.Add(nameof(parameter), parameter.ToString());
-				}
-				Int32.TryParse(dictionary[nameof(parameter)], out parameter);
+				parameter = Int32.Parse(dictionary[nameof(parameter)]);
 			}
 			catch (Exception e) {
 				Console.Error.WriteLine("Exception caught on {0}({1}) : {2}", System.Reflection.MethodBase.GetCurrentMethod().Name, parameter, e);
@@ -243,33 +218,29 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 
 		public void				SetStr(string variable, string value)
 		{
-			try
-			{
-				if (!dictionary.ContainsKey(nameof(variable))) dictionary.Add(nameof(variable), variable);
-				else dictionary[nameof(variable)] = variable;
+			try {
+				dictionary[variable] = value;
 			}
 			catch (Exception e)
 			{
-				Console.Error.WriteLine("Exception caught on {0}({1},{2}) : {3}", System.Reflection.MethodBase.GetCurrentMethod().Name, nameof(variable), value, e);
+				Console.Error.WriteLine("Exception caught on {0}({1},{2}) : {3}", System.Reflection.MethodBase.GetCurrentMethod().Name, variable, value, e);
 			}
 		}
 		public void				SetStr(ref string parameter)
 		{
 			try {
-				if (!dictionary.ContainsKey(nameof(parameter))) dictionary.Add(nameof(parameter), parameter);
-				else dictionary[nameof(parameter)] = parameter;
+				dictionary[nameof(parameter)] = parameter;
 			}
 			catch (Exception e)
 			{
-				Console.Error.WriteLine("Exception caught on {0}(ref {1}) : {2}", System.Reflection.MethodBase.GetCurrentMethod().Name, nameof(parameter), e);
+				Console.Error.WriteLine("Exception caught on {0}({1}) : {2}", System.Reflection.MethodBase.GetCurrentMethod().Name, parameter, e);
 			}
 		}
 
 		public void				SetInt(string variable, int value)
 		{
 			try {
-				if (!dictionary.ContainsKey(variable)) dictionary.Add(variable, value.ToString());
-				else dictionary[variable] = value.ToString();
+				dictionary[variable] = value.ToString();
 			}
 			catch (Exception e)
 			{
@@ -279,8 +250,7 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 		public void				SetInt(ref int parameter)
 		{
 			try {
-				if (!dictionary.ContainsKey(nameof(parameter))) dictionary.Add(nameof(parameter), parameter.ToString());
-				else dictionary[nameof(parameter)] = parameter.ToString();
+				dictionary[nameof(parameter)] = parameter.ToString();
 			}
 			catch (Exception e)
 			{

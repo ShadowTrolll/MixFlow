@@ -16,18 +16,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Source\lib\**" />
-    <EmbeddedResource Remove="Source\lib\**" />
-    <None Remove="Source\lib\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Kalavaras.ID3" Version="1.1.1" />
     <PackageReference Include="Kalavaras.ID3.Files" Version="1.0.1" />
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="2.0.0-preview1-26216-02" />
     <PackageReference Include="MongoDB.Driver" Version="2.5.0" />
     <PackageReference Include="MySql.Data" Version="8.0.10-rc" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Source\lib\Newtonsoft.Json\Newtonsoft.Json.csproj" />
   </ItemGroup>
 
 </Project>

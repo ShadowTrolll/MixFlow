@@ -5,6 +5,13 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <StartupObject>MixFlow_BareboneCSCore.Program</StartupObject>
     <NeutralLanguage>en</NeutralLanguage>
+    <AssemblyVersion>0.0.0.1</AssemblyVersion>
+    <FileVersion>0.0.0.1</FileVersion>
+    <PackageId>MixFlow - Barebone (.NET Core)</PackageId>
+    <Authors>DJ Daemonix</Authors>
+    <Company>Nodsoft ES</Company>
+    <Product>MixFlow</Product>
+    <Copyright>Copyright (c) 2018 Nodsoft ES - All Rights Reserved</Copyright>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -28,6 +35,12 @@
     <PackageReference Include="MongoDB.Driver" Version="2.5.0" />
     <PackageReference Include="MySql.Data" Version="8.0.10-rc" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System">
+      <HintPath>System</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
