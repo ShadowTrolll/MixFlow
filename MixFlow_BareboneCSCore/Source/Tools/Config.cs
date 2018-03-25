@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 /// <summary>
 /// Config.cs
 /// Simple configuration Get/Set tool
+/// Version 1.0.0
 /// Copyright (c) Nodsoft ES - All Rights Reserved
 /// </summary>
 
@@ -33,6 +34,10 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 
 
 								//Constructors / Deconstructor
+								/// <summary>
+								/// Default constructor
+								/// </summary>
+								/// <param name="filePath">Path of the config file to access</param>
 		public					ConfigJson(string filePath)
 		{
 			ConfigFileInfo = new FileInfo(filePath);
@@ -46,6 +51,13 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 
 			LoadConfig();
 		}
+								/// <summary>
+								/// Alternative Constructor
+								/// </summary>
+								/// <param name="filePath">Path of the config file to access</param>
+								/// <param name="encoding">Config File Encoding (suggested UTF-8)</param>
+								/// <param name="templatePath">Path of the template file, used if file initially blank/null (default : null)</param>
+								/// <param name="initTemplate">Toggle for initialization by template of the config file (default : false)</param>
 		public					ConfigJson(string filePath, Encoding encoding, string templatePath = null, bool initTemplate = false)
 		{
 			ConfigFileInfo = new FileInfo(filePath);
@@ -57,19 +69,29 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 			LoadConfig();
 		}
 
+								/// <summary>
+								/// Deconstructor
+								/// </summary>
 								~ConfigJson()
 		{
 			SaveConfig();
 		}
 
 
+
 								//File Handling Methods
+								/// <summary>
+								/// Load the config file and deserializes it immediately.
+								/// </summary>
 		public void				LoadConfig()
 		{
 			LoadFile();
 			Deserialize();
 		}
-
+								
+								/// <summary>
+								/// Serializes to config file and writes it immediately.
+								/// </summary>
 		public void				SaveConfig()
 		{
 			Serialize();
@@ -77,6 +99,9 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 		}
 
 
+								/// <summary>
+								/// Loads the file to a JSON String (stream is cut immediately after load)
+								/// </summary>
 		protected void			LoadFile()
 		{
 			try
@@ -103,6 +128,9 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 			}
 		}
 
+								/// <summary>
+								/// Saves the JSON string to file (stream is cut immediately after write)
+								/// </summary>
 		protected void			SaveFile()
 		{
 			try
@@ -127,6 +155,9 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 		}
 
 
+								/// <summary>
+								/// Deserializes a JSON String to a Dictionary (or creates one if string is null
+								/// </summary>
 		protected void			Deserialize()
 		{
 			if (jsonRaw != null && jsonRaw != "")
@@ -139,13 +170,21 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 			}
 		}
 
+								/// <summary>
+								/// Serializes a Dictionary to a JSON String
+								/// </summary>
 		protected void			Serialize()
 		{
 			jsonRaw = JsonConvert.SerializeObject(dictionary, Formatting.Indented);
 		}
 
 
+
 								//Checks
+								/// <summary>
+								/// Checks if the config file is in use by another program (aka locked)
+								/// </summary>
+								/// <returns>Boolean with lock status (false = unlocked, true = locked)</returns>
 		protected bool			IsFileLocked() //http://dotnet-assembly.blogspot.fr/2012/10/c-check-file-is-being-used-by-another.html
 		{
 			FileStream stream = null;
@@ -173,13 +212,25 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 			return false;
 		}
 
+								/// <summary>
+								/// Checks if a variable exists within the Deserialized dictionary
+								/// </summary>
+								/// <remarks>This method is designed for external use.</remarks>
+								/// <param name="variable">Name of variable to check</param>
+								/// <returns>Boolean with existence status (true = exists, false = doesn't)</returns>
 		public bool				VarExistsInFile(string variable)
 		{
 			return dictionary.ContainsKey(variable);
 		}
 
 
+
 								//Get Set Methods 
+								/// <summary>
+								/// Gets a particular variable from the dictionary
+								/// </summary>
+								/// <param name="variable">Name of variable to access</param>
+								/// <returns>String with variable's value on Dictionary</returns>
 		public string			GetStr(string variable)
 		{
 			try
@@ -196,6 +247,10 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 
 			return dictionary[variable];
 		}
+								/// <summary>
+								/// Gets a particular parameter from the dictionary
+								/// </summary>
+								/// <param name="parameter">Parameter to get, and copy value to</param>
 		public void				GetStr(ref string parameter)
 		{
 			try
@@ -211,6 +266,11 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 			}
 		}
 
+								/// <summary>
+								/// Gets a particular variable from the dictionary
+								/// </summary>
+								/// <param name="variable">Name of variable to access</param>
+								/// <returns>Int with variable's value on Dictionary</returns>
 		public int				GetInt(string variable)
 		{
 			Int32 value = 0;
@@ -227,6 +287,10 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 			}
 			return value;
 		}
+								/// <summary>
+								/// Gets a particular parameter from the dictionary
+								/// </summary>
+								/// <param name="parameter">Parameter to get, and copy value to</param>
 		public void				GetInt(ref Int32 parameter)
 		{
 			try {
@@ -241,6 +305,12 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 			}
 		}
 
+
+								/// <summary>
+								/// Sets a variable on dictionary
+								/// </summary>
+								/// <param name="variable">Name of variable to set</param>
+								/// <param name="value">Value to set</param>
 		public void				SetStr(string variable, string value)
 		{
 			try
@@ -253,6 +323,10 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 				Console.Error.WriteLine("Exception caught on {0}({1},{2}) : {3}", System.Reflection.MethodBase.GetCurrentMethod().Name, nameof(variable), value, e);
 			}
 		}
+								/// <summary>
+								/// Sets a parameter on dictionary
+								/// </summary>
+								/// <param name="parameter">Parameter to set</param>
 		public void				SetStr(ref string parameter)
 		{
 			try {
@@ -265,6 +339,11 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 			}
 		}
 
+								/// <summary>
+								/// Sets a variable on dictionary
+								/// </summary>
+								/// <param name="variable">Name of variable to set</param>
+								/// <param name="value">Value to set</param>
 		public void				SetInt(string variable, int value)
 		{
 			try {
@@ -276,6 +355,10 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 				Console.Error.WriteLine("Exception caught on {0}({1},{2}) : {3}", System.Reflection.MethodBase.GetCurrentMethod().Name, variable, value, e);
 			}
 		}
+								/// <summary>
+								/// Sets a parameter on dictionary
+								/// </summary>
+								/// <param name="parameter">Parameter to set</param>
 		public void				SetInt(ref int parameter)
 		{
 			try {
