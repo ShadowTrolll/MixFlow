@@ -29,6 +29,18 @@
           "lib/netstandard1.3/DnsClient.dll": {}
         }
       },
+      "dotnet-setversion/1.0.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.App": "2.0.0"
+        },
+        "compile": {
+          "lib/netcoreapp2.0/dotnet-setversion.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/dotnet-setversion.dll": {}
+        }
+      },
       "Google.Protobuf/3.3.0": {
         "type": "package",
         "dependencies": {
@@ -52,27 +64,6 @@
         },
         "runtime": {
           "lib/netstandard1.0/Google.Protobuf.dll": {}
-        }
-      },
-      "Kalavaras.ID3/1.1.1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Id3.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Id3.dll": {}
-        }
-      },
-      "Kalavaras.ID3.Files/1.0.1": {
-        "type": "package",
-        "dependencies": {
-          "Kalavaras.ID3": "1.1.1"
-        },
-        "compile": {
-          "lib/netstandard2.0/Id3.Files.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Id3.Files.dll": {}
         }
       },
       "Microsoft.NETCore.App/2.0.0": {
@@ -541,7 +532,7 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Newtonsoft.Json/11.0.1": {
+      "Newtonsoft.Json/11.0.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
@@ -2407,6 +2398,27 @@
         "runtime": {
           "lib/netstandard1.3/System.Threading.ThreadPool.dll": {}
         }
+      },
+      "taglib-sharp-netstandard2.0/2.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/taglib-sharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/taglib-sharp.dll": {}
+        }
+      },
+      "TagLib.Portable/1.2.0-pre": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.6/TagLib.Portable.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.6/TagLib.Portable.dll": {}
+        }
       }
     }
   },
@@ -2424,6 +2436,21 @@
         "lib/netstandard1.3/DnsClient.xml"
       ]
     },
+    "dotnet-setversion/1.0.3": {
+      "sha512": "/G2EJ06+lbzFj0sGgsP8D4WDaPkrqg4SwJ5WsHrHbxutZGQ4efUoA4thPh49oPceXYookLZdQehWMsxFAjGD0Q==",
+      "type": "package",
+      "path": "dotnet-setversion/1.0.3",
+      "files": [
+        "dotnet-setversion.1.0.3.nupkg.sha512",
+        "dotnet-setversion.nuspec",
+        "lib/netcoreapp1.0/dotnet-setversion.dll",
+        "lib/netcoreapp1.0/dotnet-setversion.runtimeconfig.json",
+        "lib/netcoreapp1.1/dotnet-setversion.dll",
+        "lib/netcoreapp1.1/dotnet-setversion.runtimeconfig.json",
+        "lib/netcoreapp2.0/dotnet-setversion.dll",
+        "lib/netcoreapp2.0/dotnet-setversion.runtimeconfig.json"
+      ]
+    },
     "Google.Protobuf/3.3.0": {
       "sha512": "W0TsIYM2ED9dc/FgdbdtP68vUP1JdbwaFscG3DeVtJNlfm8A/ozjAT0H3dWIk0jJd9Zcx6B7XZ1LYERF8PqqJA==",
       "type": "package",
@@ -2435,26 +2462,6 @@
         "lib/net45/Google.Protobuf.xml",
         "lib/netstandard1.0/Google.Protobuf.dll",
         "lib/netstandard1.0/Google.Protobuf.xml"
-      ]
-    },
-    "Kalavaras.ID3/1.1.1": {
-      "sha512": "2iAp9+g5FfmCCXMsbpOEJeJO8ZjvEvKLXVJn+9q4mpPkIVAuqkuVksW5DR4SUPCRwcDWHO4GXSPwlCRxnRMj8g==",
-      "type": "package",
-      "path": "kalavaras.id3/1.1.1",
-      "files": [
-        "kalavaras.id3.1.1.1.nupkg.sha512",
-        "kalavaras.id3.nuspec",
-        "lib/netstandard2.0/Id3.dll"
-      ]
-    },
-    "Kalavaras.ID3.Files/1.0.1": {
-      "sha512": "ts3YFeS+36nrTIiGcL+Rt4a5AoZKfZ4dX+MJdHaX6GM/KwzgcbfWh3RDCWgMNQcdhH+KlpamCTeEd2T9w0qGug==",
-      "type": "package",
-      "path": "kalavaras.id3.files/1.0.1",
-      "files": [
-        "kalavaras.id3.files.1.0.1.nupkg.sha512",
-        "kalavaras.id3.files.nuspec",
-        "lib/netstandard2.0/Id3.Files.dll"
       ]
     },
     "Microsoft.NETCore.App/2.0.0": {
@@ -3201,10 +3208,10 @@
         "netstandard.library.nuspec"
       ]
     },
-    "Newtonsoft.Json/11.0.1": {
-      "sha512": "pNN4l+J6LlpIvHOeNdXlwxv39NPJ2B5klz+Rd2UQZIx30Squ5oND1Yy3wEAUoKn0GPUj6Yxt9lxlYWQqfZcvKg==",
+    "Newtonsoft.Json/11.0.2": {
+      "sha512": "IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
       "type": "package",
-      "path": "newtonsoft.json/11.0.1",
+      "path": "newtonsoft.json/11.0.2",
       "files": [
         "LICENSE.md",
         "lib/net20/Newtonsoft.Json.dll",
@@ -3225,7 +3232,7 @@
         "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "newtonsoft.json.11.0.1.nupkg.sha512",
+        "newtonsoft.json.11.0.2.nupkg.sha512",
         "newtonsoft.json.nuspec"
       ]
     },
@@ -7664,17 +7671,38 @@
         "system.threading.threadpool.4.3.0.nupkg.sha512",
         "system.threading.threadpool.nuspec"
       ]
+    },
+    "taglib-sharp-netstandard2.0/2.1.0": {
+      "sha512": "w45LreEPpV/vOfgpYBI1cNqiLvj8yQ8f7kJaMYtzTAsg26ZdHWnh5vPuy2/F9tCKhmgNB0s+zOBwdcEb4qk3Tg==",
+      "type": "package",
+      "path": "taglib-sharp-netstandard2.0/2.1.0",
+      "files": [
+        "lib/netstandard2.0/taglib-sharp.dll",
+        "taglib-sharp-netstandard2.0.2.1.0.nupkg.sha512",
+        "taglib-sharp-netstandard2.0.nuspec"
+      ]
+    },
+    "TagLib.Portable/1.2.0-pre": {
+      "sha512": "Zu32iIGO7PbvbUD0HqffxrNe4s/QjRrmOD7UDJoMDQ5Wl33xENMzgX9tKnM+H0zbhKCQbTcg2nE3kkc5Ldo3gg==",
+      "type": "package",
+      "path": "taglib.portable/1.2.0-pre",
+      "files": [
+        "lib/netstandard1.6/TagLib.Portable.dll",
+        "taglib.portable.1.2.0-pre.nupkg.sha512",
+        "taglib.portable.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
-      "Kalavaras.ID3 >= 1.1.1",
-      "Kalavaras.ID3.Files >= 1.0.1",
       "Microsoft.NETCore.App >= 2.0.0",
       "Microsoft.Windows.Compatibility >= 2.0.0-preview1-26216-02",
       "MongoDB.Driver >= 2.5.0",
       "MySql.Data >= 8.0.10-rc",
-      "Newtonsoft.Json >= 11.0.1"
+      "Newtonsoft.Json >= 11.0.2",
+      "TagLib.Portable >= 1.2.0-pre",
+      "dotnet-setversion >= 1.0.3",
+      "taglib-sharp-netstandard2.0 >= 2.1.0"
     ]
   },
   "packageFolders": {
@@ -7683,10 +7711,10 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "0.0.0.1",
     "restore": {
       "projectUniqueName": "C:\\Users\\DJ Daemonix\\source\\repos\\MixFlow\\MixFlow_BareboneCSCore\\MixFlow_BareboneCSCore.csproj",
-      "projectName": "MixFlow_BareboneCSCore",
+      "projectName": "MixFlow - Barebone (.NET Core)",
       "projectPath": "C:\\Users\\DJ Daemonix\\source\\repos\\MixFlow\\MixFlow_BareboneCSCore\\MixFlow_BareboneCSCore.csproj",
       "packagesPath": "C:\\Users\\DJ Daemonix\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\DJ Daemonix\\source\\repos\\MixFlow\\MixFlow_BareboneCSCore\\obj\\",
@@ -7721,14 +7749,6 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
-          "Kalavaras.ID3": {
-            "target": "Package",
-            "version": "[1.1.1, )"
-          },
-          "Kalavaras.ID3.Files": {
-            "target": "Package",
-            "version": "[1.0.1, )"
-          },
           "Microsoft.NETCore.App": {
             "target": "Package",
             "version": "[2.0.0, )",
@@ -7748,7 +7768,19 @@
           },
           "Newtonsoft.Json": {
             "target": "Package",
-            "version": "[11.0.1, )"
+            "version": "[11.0.2, )"
+          },
+          "TagLib.Portable": {
+            "target": "Package",
+            "version": "[1.2.0-pre, )"
+          },
+          "dotnet-setversion": {
+            "target": "Package",
+            "version": "[1.0.3, )"
+          },
+          "taglib-sharp-netstandard2.0": {
+            "target": "Package",
+            "version": "[2.1.0, )"
           }
         },
         "imports": [

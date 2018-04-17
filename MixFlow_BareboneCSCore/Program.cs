@@ -1,38 +1,62 @@
 ﻿using System;
-using System.Runtime;
+using System.Reflection;
 using MixFlow_BareboneCSCore.Source.Properties;
 using MixFlow_BareboneCSCore.Source.Tools;
+using MixFlow_BareboneCSCore.Source.Menu;
 
 
 namespace MixFlow_BareboneCSCore
 {
 	class Program
 	{
+		public static Version version = Assembly.GetExecutingAssembly().GetName().Version;
+
 		static int Main(string[] args)
 		{
-			
 			#region initSubsystems
-			//Config
-			if (!System.IO.Directory.Exists(Config.ConfigPathDefault))
-			{
-				System.IO.Directory.CreateDirectory(Config.ConfigPathDefault);
-			}
 
-			ConfigJson configMain = new ConfigJson(Config.ConfigPathMain);
-	
-			string testVar = "testVal";
+			//Config
+			ConfigJson configMain = new ConfigJson(ConfigPaths.ConfigPathMain);
 
 			#endregion //initSubsystems
-			
 
-			Console.WriteLine("Hello World!");
-			Console.WriteLine(Config.ConfigPathDefault);
+			bool resume = true;
+			byte feature;
 
-			
-			configMain.SetStr(nameof(testVar), testVar);
-			configMain.SaveConfig();
-			Console.WriteLine(configMain.GetStr(testVar));
-			
+
+			Menu.DisplaySplash();
+
+			while (resume)
+			{
+				Menu.DisplayMainMenu();
+
+				feature = Menu.SelectFromMainMenu();
+
+				switch (feature)
+				{
+					case 255:
+						resume = false;
+
+						break;
+					case 101:
+						Menu.DisplayMessageWIP();
+						break;
+					case 102:
+						Menu.DisplayMessageWIP();
+						break;
+
+					case 1:
+						Menu.DisplayMessageWIP();
+						break;
+					case 2:
+						Menu.DisplayMessageWIP();
+						break;
+					case 3:
+						Source.Features.Features.FeatureConfig();
+						break;
+				}
+				Console.Clear();
+			}
 
 			Console.ReadKey(true);
 			return 0;

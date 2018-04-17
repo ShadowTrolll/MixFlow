@@ -19,15 +19,11 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 		//Properties
 		public FileInfo			ConfigFileInfo			{ get; set; }
 		public DirectoryInfo	ConfigDirectoryInfo		{ get; set; }	
-		public string			ConfigFileTemplate		{ get; set; }
-		public Encoding			ConfigFileEncoding		{ get; set; }	= Encoding.UTF8;
+		public string			ConfigFileTemplate		{ get; private set; }
+		public Encoding			ConfigFileEncoding		{ get; set; }				= Encoding.UTF8;
 
 		//Variables
-		private FileStream		fileStream;
-		private StreamReader	streamReader;
-		private StreamWriter	streamWriter;
-
-		private string			jsonRaw					= null;
+		private string			jsonRaw												= null;
 
 		private Dictionary<String, String> dictionary;
 
@@ -160,12 +156,21 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 								/// </summary>
 		protected void			Deserialize()
 		{
-			if (jsonRaw != null && jsonRaw != "")
+			try
 			{
-				dictionary = JsonConvert.DeserializeObject<Dictionary<String, String>>(jsonRaw);
+				if (jsonRaw != null && jsonRaw != "")
+				{
+					dictionary = JsonConvert.DeserializeObject<Dictionary<String, String>>(jsonRaw);
+				}
+				if (dictionary == null)
+				{
+					dictionary = new Dictionary<string, string>();
+				}
+
 			}
-			if (dictionary == null)
+			catch (Exception e)
 			{
+				Console.Error.WriteLine("Exception caught on {0}() : {3}", System.Reflection.MethodBase.GetCurrentMethod().Name, e);
 				dictionary = new Dictionary<string, string>();
 			}
 		}

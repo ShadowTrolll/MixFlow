@@ -4,27 +4,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MixFlow_BareboneCSCore.Source.Tools;
+using MixFlow_BareboneCSCore.Source.Properties;
 
-namespace Mixflow_BareboneCS.Source.Features
+namespace MixFlow_BareboneCSCore.Source.Features
 {
 	static class Features
 	{
 		public static void FeatureConfig()
 		{
-			string accessMode, filePath, variable, value;
+			string	accessMode, filePath, 
+					variable = null, 
+					value = null;
 
 			string	userInput = "";
 			bool	inputValid = false;
 
 
 #region accessMode
+
 			Console.WriteLine("Get or Set ?");
 			while (!inputValid)
 			{
 				userInput = Console.ReadLine();
 				userInput = userInput.ToLower();
 
-				if (userInput != "get" || userInput!= "set")
+				if (userInput != "get" && userInput!= "set")
 				{
 					inputValid = false;
 					Console.WriteLine("Incorrect input. Please enter \"Get\" or \"Set\" (Case insensitive).");
@@ -39,7 +44,6 @@ namespace Mixflow_BareboneCS.Source.Features
 			inputValid = false;
 #endregion //accessMode
 
-
 #region filepath
 			Console.WriteLine("Enter filepath : (Enter 0 for default)");
 			while (!inputValid)
@@ -51,6 +55,12 @@ namespace Mixflow_BareboneCS.Source.Features
 					inputValid = false;
 					Console.WriteLine("Incorrect input. Try again.");
 				}
+				else if (userInput == "0")
+				{
+					userInput = ConfigPaths.ConfigPathTest;
+					Console.WriteLine("Defaulting to {0}.", userInput);
+					inputValid = true;
+				}
 				else
 				{
 					inputValid = true;
@@ -60,7 +70,6 @@ namespace Mixflow_BareboneCS.Source.Features
 			userInput = "";
 			inputValid = false;
 #endregion //filepath
-
 
 #region variable
 			Console.WriteLine("Enter variable to access :");
@@ -84,7 +93,6 @@ namespace Mixflow_BareboneCS.Source.Features
 			inputValid = false;
 			#endregion //variable
 
-
 #region value
 			if (accessMode == "set")
 			{
@@ -107,8 +115,27 @@ namespace Mixflow_BareboneCS.Source.Features
 
 				value = userInput;
 				userInput = "";
+				inputValid = false;
 			}
-#endregion //value
+			#endregion //value
+
+
+#region result
+
+			ConfigJson configTest = new ConfigJson(filePath);
+
+			if (accessMode == "get")
+			{
+				Console.WriteLine("Value of \"{0}\" is \"{1}\".", variable, configTest.GetStr(variable));
+			}
+			else if (accessMode == "set")
+			{
+				configTest.SetStr(variable, value);
+				Console.WriteLine("Value of \"{0}\" set to \"{1}\".", variable, value);
+			}
+			Console.ReadKey();
+
+#endregion //result
 
 
 		}

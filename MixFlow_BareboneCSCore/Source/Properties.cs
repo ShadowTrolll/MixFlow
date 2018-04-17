@@ -5,22 +5,26 @@ namespace MixFlow_BareboneCSCore.Source
 {
 	namespace Properties
 	{
-		public static class Project
+		public static class ProjectProperties
         {                                   //Project Properties
-            public static string            ProjectName { get; } = "MixFlow";
+            public static string            ProjectName			{ get; }					= "MixFlow";
         }
-            public static class Config
+
+		public static class ConfigPaths
         {                                    //OS-Specific Properties
-            public static string            DirectorySpacer        { get; }			= SetDirSpacing();
+            public static string            DirectorySpacer		{ get; }					= SetDirSpacing();
  
                                             //Config File Paths
-            public static string            ConfigPathDefault   { get; }			= Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData).ToString() + DirectorySpacer + Project.ProjectName + DirectorySpacer + "config" + DirectorySpacer;
-            public static string            ConfigPathMain      { get; set; }		= ConfigPathDefault + "Main.json";
-            public static string            ConfigPathDB		{ get; set; }		= ConfigPathDefault + "database.json";
+			public static string			AppDataPath			{ get; }					= Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData).ToString() + DirectorySpacer + ProjectProperties.ProjectName + DirectorySpacer;
+
+			public static string            ConfigDir			{ get; set; }				= AppDataPath + "config" + DirectorySpacer;
+            public static string            ConfigPathMain      { get; private set; }		= ConfigDir + "Main.json";
+            public static string            ConfigPathDB		{ get; private set; }		= ConfigDir + "Database.json";
+			public static string			ConfigPathTest		{ get; private set; }		= ConfigDir + "Test.json";
  
  
             //Methods
-            private static string SetDirSpacing()
+            private static string			SetDirSpacing()
             {
                 string spacer = null;
  
@@ -36,6 +40,11 @@ namespace MixFlow_BareboneCSCore.Source
                 return spacer;
             }
         }
+
+		public static class ConfigDatabase
+		{
+			public static string			DBDir				{ get; set; }		= ConfigPaths.AppDataPath + "database" + ConfigPaths.DirectorySpacer;
+		}
     }
 }
  
