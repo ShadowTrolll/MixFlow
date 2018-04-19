@@ -6,8 +6,8 @@ using System.Text;
 
 namespace MixFlow_BareboneCSCore.Source.Tools
 {
-    public static class Utilities
-    {
+	public static class Utilities
+	{
 		public static bool ValidFilePath(ref string path, string RelativePath = "", string Extension = "")
 		{
 			if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
@@ -159,6 +159,16 @@ namespace MixFlow_BareboneCSCore.Source.Tools
 				// Path contains invalid characters
 			}
 			return false;
+		}
+
+		public static void ExceptionHandle(NotImplementedException exception)
+		{
+			Console.Error.WriteLine("NotImplementedException caught.");
+			Console.Error.WriteLine("Please check Debug for details."	+ "\n");
+		}
+		public static void ExceptionHandle(Exception exception)
+		{
+			Console.Error.WriteLine("Exception caught : " + exception);
 		}
 	}
 }

@@ -14,7 +14,7 @@ using Newtonsoft.Json;
 
 namespace MixFlow_BareboneCSCore.Source.Tools
 {
-    public class ConfigJson
+	public class ConfigJson
 	{
 		//Properties
 		public FileInfo			ConfigFileInfo			{ get; set; }

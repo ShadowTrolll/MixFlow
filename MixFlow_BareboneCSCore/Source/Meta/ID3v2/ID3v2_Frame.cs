@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace MixFlow_BareboneCSCore.Source.Meta.ID3v2
 {
-    public class ID3v2_Frame
-    {
+	public class ID3v2_Frame
+	{
 									//Variables
 		public string				FrameName				{ get; private set; }	= null;
 		public object				FrameValue				{ get; set; }			= null;
@@ -25,7 +22,7 @@ namespace MixFlow_BareboneCSCore.Source.Meta.ID3v2
 
 	public static class ID3v2_FrameList
 	{
-		private static string[]		FrameArray										= new string[]
+		private static readonly string[]		FrameArray							= new string[]
 			{
 				"AENC",	//Audio encryption
 				"ASPI", //Audio seek point index
@@ -59,10 +56,8 @@ namespace MixFlow_BareboneCSCore.Source.Meta.ID3v2
 				"TCOM", //Composer
 				"TCON", //Content type
 				"TCOP", //Copyright message
-				"TDRC", //Date
 				"TDEN", //Encoding time
 				"TDLY", //Playlist delay
-				"TDRC", //Recording time
 				"TDRL", //Release time
 				"TDTG", //Tagging time
 				"TENC", //Encoded by
@@ -92,7 +87,6 @@ namespace MixFlow_BareboneCSCore.Source.Meta.ID3v2
 				"TPRO", //Produced notice
 				"TPUB", //Publisher
 				"TRCK", //Track number/Position in set
-				"TDRC", //Recording dates
 				"TRSN", //Internet radio station name
 				"TRSO", //Internet radio station owner
 				"TSOA", //Album sort order
@@ -101,7 +95,6 @@ namespace MixFlow_BareboneCSCore.Source.Meta.ID3v2
 				"TSRC", //International Standard Recording Code (ISRC)
 				"TSSE", //Software/Hardware and settings used for encoding
 				"TSST", //Set subtitle
-				"TDRC", //Year
 
 				"UFID", //Unique file identifier
 				"USER", //Terms of use
@@ -121,7 +114,7 @@ namespace MixFlow_BareboneCSCore.Source.Meta.ID3v2
 				"WXXX", //User defined URL link frame
 			};
 
-		public static List<string>	FrameList				{ get; private set; }	= new List<string>(FrameArray);
+		public static readonly List<string>		FrameList							= new List<string>(FrameArray);
 	}
 }
 
