@@ -170,5 +170,9 @@ namespace MixFlow.Utilities
 		{
 			Console.Error.WriteLine("Exception caught : " + exception);
 		}
+		public static void ExceptionHandle(string message, Exception exception)
+		{
+			Console.Error.WriteLine("Exception caught : " + exception + "\n" + message);
+		}
 	}
 }
