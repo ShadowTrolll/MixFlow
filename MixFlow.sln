@@ -13,9 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MixFlow_Barebone", "MixFlow
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Config", "Config\Config.csproj", "{3C7F9520-8ECB-466B-B500-073902477AF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{85995E82-E279-43ED-A094-4054A8A2040E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utilities", "Utilities\Utilities.csproj", "{85995E82-E279-43ED-A094-4054A8A2040E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Properties_Global", "Properties_Global\Properties_Global.csproj", "{B1E8C94A-6B4F-4EEC-AD50-4716C7FF26CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Properties_Global", "Properties_Global\Properties_Global.csproj", "{B1E8C94A-6B4F-4EEC-AD50-4716C7FF26CA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{115D3715-BC17-4860-9524-DB96A26C391B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
