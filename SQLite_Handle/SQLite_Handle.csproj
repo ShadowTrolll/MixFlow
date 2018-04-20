@@ -4,4 +4,14 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.108" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Config\Config.csproj" />
+    <ProjectReference Include="..\Properties_Global\Properties_Global.csproj" />
+    <ProjectReference Include="..\Utilities\Utilities.csproj" />
+  </ItemGroup>
+
 </Project>
