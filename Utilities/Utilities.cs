@@ -8,6 +8,7 @@ namespace MixFlow.Utilities
 {
 	public static class Utilities
 	{
+		//Filepath Validators (if cannot use FileInfo.Exists())
 		public static bool ValidFilePath(ref string path, string RelativePath = "", string Extension = "")
 		{
 			if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
@@ -16,7 +17,6 @@ namespace MixFlow.Utilities
 			}
 			else return true;
 		}
-
 		private static bool ValidWindowsFilePath(ref string path, string RelativePath = "", string Extension = "") //https://stackoverflow.com/a/28470763/9507391
 		{
 			// Check if it contains any Invalid Characters.
@@ -161,6 +161,7 @@ namespace MixFlow.Utilities
 			return false;
 		}
 
+		//Exception Handlers
 		public static void ExceptionHandle(NotImplementedException exception)
 		{
 			Console.Error.WriteLine("NotImplementedException caught.");
@@ -173,6 +174,14 @@ namespace MixFlow.Utilities
 		public static void ExceptionHandle(string message, Exception exception)
 		{
 			Console.Error.WriteLine("Exception caught : " + exception + "\n" + message);
+		}
+
+		//Utilities Enums
+		public enum FileHandleModes
+		{
+			appendOverwrite,	///Standard Data Handling : Append with overwrite
+			appendEmptyOnly,    ///Completes empty fields only
+			rewrite,			///Cleans content before Data Handling
 		}
 	}
 }
